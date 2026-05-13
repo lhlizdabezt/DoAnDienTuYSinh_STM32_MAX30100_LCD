@@ -6,6 +6,8 @@
 *.pdsprj binary
 *.pptx binary
 *.mp4 binary
+*.gif binary
+*.svg text eol=lf
 *.png binary
 *.jpg binary
 *.jpeg binary

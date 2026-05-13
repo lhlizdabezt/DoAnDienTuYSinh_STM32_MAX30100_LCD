@@ -1,0 +1,67 @@
+<svg width="1200" height="420" viewBox="0 0 1200 420" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="title desc">
+  <title id="title">STM32 Biomedical Monitor</title>
+  <desc id="desc">Animated banner for STM32 MAX30100 pulse oximeter project</desc>
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#0f172a"/>
+      <stop offset="48%" stop-color="#102a43"/>
+      <stop offset="100%" stop-color="#0f766e"/>
+    </linearGradient>
+    <linearGradient id="pulse" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0%" stop-color="#38bdf8"/>
+      <stop offset="45%" stop-color="#22c55e"/>
+      <stop offset="100%" stop-color="#f97316"/>
+    </linearGradient>
+    <filter id="glow" x="-40%" y="-40%" width="180%" height="180%">
+      <feGaussianBlur stdDeviation="5" result="blur"/>
+      <feMerge>
+        <feMergeNode in="blur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+  </defs>
+
+  <rect width="1200" height="420" rx="34" fill="url(#bg)"/>
+  <g opacity="0.16">
+    <path d="M0 348 C170 300 264 382 420 330 C590 273 724 342 900 292 C1045 251 1112 260 1200 219" fill="none" stroke="#d1fae5" stroke-width="3"/>
+    <path d="M0 96 C162 142 286 70 444 122 C599 173 719 78 878 126 C1032 172 1105 122 1200 142" fill="none" stroke="#bae6fd" stroke-width="2"/>
+  </g>
+
+  <g transform="translate(70 76)">
+    <rect width="285" height="220" rx="28" fill="#0b1220" stroke="#38bdf8" stroke-width="3" opacity="0.96"/>
+    <rect x="28" y="34" width="229" height="74" rx="12" fill="#d8f3dc"/>
+    <text x="48" y="79" font-family="Segoe UI, Arial, sans-serif" font-size="28" font-weight="800" fill="#0f172a">BPM: 078</text>
+    <text x="48" y="103" font-family="Segoe UI, Arial, sans-serif" font-size="18" font-weight="700" fill="#0f766e">SpO2: 98%</text>
+    <path d="M28 156 H76 L95 124 L122 190 L154 140 L174 156 H257" fill="none" stroke="url(#pulse)" stroke-width="7" stroke-linecap="round" stroke-linejoin="round" filter="url(#glow)">
+      <animate attributeName="stroke-dasharray" values="0 420;210 210;420 0" dur="2.4s" repeatCount="indefinite"/>
+    </path>
+    <circle cx="234" cy="176" r="8" fill="#22c55e">
+      <animate attributeName="opacity" values="0.35;1;0.35" dur="1s" repeatCount="indefinite"/>
+      <animate attributeName="r" values="6;12;6" dur="1s" repeatCount="indefinite"/>
+    </circle>
+  </g>
+
+  <g transform="translate(430 75)">
+    <text x="0" y="38" font-family="Segoe UI, Arial, sans-serif" font-size="22" font-weight="800" fill="#7dd3fc">STM32F103C8T6 + MAX30100/MAX30102</text>
+    <text x="0" y="98" font-family="Segoe UI, Arial, sans-serif" font-size="54" font-weight="900" fill="#ffffff">Biomedical Pulse</text>
+    <text x="0" y="158" font-family="Segoe UI, Arial, sans-serif" font-size="54" font-weight="900" fill="#ffffff">Oximeter Monitor</text>
+    <text x="0" y="206" font-family="Segoe UI, Arial, sans-serif" font-size="22" font-weight="650" fill="#ccfbf1">BPM, SpO2, LCD1602, I2C, Proteus Simulation</text>
+    <g transform="translate(0 238)">
+      <rect width="158" height="44" rx="22" fill="#0f766e"/>
+      <text x="28" y="29" font-family="Segoe UI, Arial, sans-serif" font-size="16" font-weight="800" fill="#ffffff">STM32duino</text>
+      <rect x="174" width="126" height="44" rx="22" fill="#2563eb"/>
+      <text x="207" y="29" font-family="Segoe UI, Arial, sans-serif" font-size="16" font-weight="800" fill="#ffffff">Proteus</text>
+      <rect x="316" width="126" height="44" rx="22" fill="#d95319"/>
+      <text x="351" y="29" font-family="Segoe UI, Arial, sans-serif" font-size="16" font-weight="800" fill="#ffffff">LCD1602</text>
+    </g>
+  </g>
+
+  <g transform="translate(1025 76)" filter="url(#glow)">
+    <circle cx="62" cy="62" r="48" fill="none" stroke="#38bdf8" stroke-width="4" opacity="0.9">
+      <animate attributeName="r" values="44;58;44" dur="2.2s" repeatCount="indefinite"/>
+      <animate attributeName="opacity" values="0.35;0.95;0.35" dur="2.2s" repeatCount="indefinite"/>
+    </circle>
+    <circle cx="62" cy="62" r="18" fill="#f97316"/>
+    <circle cx="62" cy="62" r="8" fill="#ffffff"/>
+  </g>
+</svg>
