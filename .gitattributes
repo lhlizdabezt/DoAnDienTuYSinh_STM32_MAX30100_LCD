@@ -1,0 +1,11 @@
+* text=auto
+
+.gitattributes text eol=lf
+*.md text eol=lf
+*.ino text eol=lf
+*.pdsprj binary
+*.pptx binary
+*.mp4 binary
+*.png binary
+*.jpg binary
+*.jpeg binary

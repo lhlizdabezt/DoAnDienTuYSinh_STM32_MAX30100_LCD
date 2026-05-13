@@ -1,0 +1,29 @@
+# OS/editor noise
+.DS_Store
+Thumbs.db
+desktop.ini
+*.tmp
+*.bak
+*.log
+
+# Arduino build artifacts
+build/
+*.hex
+*.elf
+*.map
+*.lst
+*.eep
+*.bin
+
+# Proteus generated/cache files
+Backup Of */
+Last Loaded */
+*.workspace
+*.pdsbak
+*.PDSPRJ.*
+*.SDF
+*.MDF
+
+# Local dependency folders
+libraries/
+node_modules/
