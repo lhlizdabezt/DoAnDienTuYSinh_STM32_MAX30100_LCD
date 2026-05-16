@@ -23,7 +23,15 @@
 </p>
 
 <p align="center">
-  <img src="./assets/pulse-wave.gif" width="760" alt="GIF mô phỏng sóng nhịp tim và tín hiệu SpO2" />
+  <img src="./assets/pulse-wave.gif" width="860" alt="GIF mô phỏng sóng nhịp tim, tín hiệu SpO2 và luồng kiểm chứng STM32" />
+</p>
+
+<p align="center">
+  <a href="https://github.com/lhlizdabezt/DoAnDienTuYSinh_STM32_MAX30100_LCD/releases/latest">🏷️ Release mới nhất</a>
+  ·
+  <a href="https://github.com/lhlizdabezt/DoAnDienTuYSinh_STM32_MAX30100_LCD/tags">🔖 Tags</a>
+  ·
+  <a href="./RELEASE_NOTES.md">🧾 Release notes</a>
 </p>
 
 ---
@@ -32,7 +40,7 @@
 
 Repo này đóng gói đầy đủ đồ án **Điện tử Y sinh** của **Lương Hải Long - 22207056 - 22DTV_CLC**: thiết kế hệ thống đo **nhịp tim BPM** và **nồng độ oxy trong máu SpO2** bằng **STM32F103C8T6 Blue Pill**, cảm biến **MAX30100/MAX30102** và màn hình **LCD 1602**.
 
-Mục tiêu của repo không chỉ là lưu file nộp bài, mà là trình bày dự án theo chuẩn có thể review nhanh: có mô tả bài toán, phần cứng, firmware, sơ đồ nối dây, cách chạy, mô phỏng, slide, video demo, release và tag rõ ràng.
+Mục tiêu của repo không chỉ là lưu file nộp bài, mà là trình bày dự án theo chuẩn có thể review nhanh: có mô tả bài toán, phần cứng, firmware, sơ đồ nối dây, cách chạy, mô phỏng, slide, video demo, release, tag, topic GitHub và visual tự host. Người xem có thể đi từ README đến mã nguồn, file Proteus, slide, video demo và release assets mà không phải đoán cấu trúc thư mục.
 
 > Lưu ý: đây là đồ án học thuật/portfolio kỹ thuật, không phải thiết bị y tế được kiểm định để chẩn đoán hoặc theo dõi sức khỏe lâm sàng.
 
@@ -44,6 +52,16 @@ Mục tiêu của repo không chỉ là lưu file nộp bài, mà là trình bà
 | Có workflow mô phỏng trước khi demo | File Proteus `.pdsprj` đi kèm firmware Arduino/STM32duino | Giảm rủi ro khi kiểm tra mạch và giúp giảng viên/kỹ sư xem logic nhanh hơn |
 | Có sản phẩm trình bày hoàn chỉnh | README, slide, video demo, release, tag, topic GitHub | Repo không bị rời rạc; phù hợp portfolio, phỏng vấn và lưu trữ học thuật |
 | Có tư duy bảo trì | Ghi rõ chân kết nối, thư viện, cách nạp code, lỗi thường gặp | Người khác có thể mở lại, chạy lại và phát triển tiếp |
+
+## 🧪 Ma trận kiểm chứng nhanh
+
+| Câu hỏi review | Nơi kiểm tra | Kết luận mong muốn |
+| --- | --- | --- |
+| Hệ thống đo gì? | README, slide, video demo | Đo BPM và SpO2 ở mức đồ án học thuật bằng STM32 và MAX30100/MAX30102 |
+| Firmware có luồng rõ không? | [`stm-max30100-lcd.ino`](./stm-max30100-lcd.ino) | Có khởi tạo LCD, kiểm tra cảm biến, cập nhật `pox.update()` và in Serial1 |
+| Có bằng chứng phần cứng/mô phỏng không? | Video `.mp4`, file Proteus `.pdsprj` | Có demo và project mô phỏng để đối chiếu trước khi chạy board thật |
+| Visual có thể tái tạo không? | [`scripts/render_pulse_wave.py`](./scripts/render_pulse_wave.py) | GIF motion có script render lại, tránh phụ thuộc file thủ công |
+| Release có đủ artifact không? | [`releases/latest`](https://github.com/lhlizdabezt/DoAnDienTuYSinh_STM32_MAX30100_LCD/releases/latest) | Có source snapshot, slide, video demo, Proteus project, SVG hero và GIF motion |
 
 ## 🧭 Kiến trúc hệ thống
 
@@ -70,6 +88,9 @@ MAX30100/MAX30102 ── I2C ──► STM32F103C8T6 Blue Pill
 | Demo | [`22207056_DoAnYSinh_LuongHaiLong.mp4`](./22207056_DoAnYSinh_LuongHaiLong.mp4) | Video minh chứng mạch hoạt động |
 | Visual | [`assets/project-hero.svg`](./assets/project-hero.svg) | Banner động cho README; chữ trong SVG dùng không dấu/tiếng Anh để tránh lỗi Unicode |
 | GIF động | [`assets/pulse-wave.gif`](./assets/pulse-wave.gif) | Minh họa chuyển động sóng nhịp tim trong README |
+| Ảnh preview | [`assets/pulse-wave-preview.png`](./assets/pulse-wave-preview.png) | Khung tĩnh đầu tiên của GIF, dùng khi cần kiểm tra nhanh render |
+| Script visual | [`scripts/render_pulse_wave.py`](./scripts/render_pulse_wave.py) | Tạo lại GIF/PNG bằng Pillow khi cần chỉnh layout |
+| Release notes | [`RELEASE_NOTES.md`](./RELEASE_NOTES.md) | Ghi rõ thay đổi, phạm vi và giới hạn của bản portfolio |
 
 ## 🔌 Phần cứng sử dụng
 
@@ -158,6 +179,15 @@ MAX30100/MAX30102 ── I2C ──► STM32F103C8T6 Blue Pill
 | LCD không có chữ | Sai chân LCD hoặc tương phản chưa đúng | Chỉnh biến trở tương phản, kiểm tra RS/EN/D4-D7 |
 | Số đo nhảy mạnh | Ngón tay rung hoặc ánh sáng ngoài nhiễu | Giữ ngón tay cố định, che cảm biến, giảm rung dây |
 | SpO2 không ổn định | Module tiếp xúc kém hoặc thư viện cần thời gian hội tụ | Chờ vài giây, đặt tay chắc hơn, kiểm tra nguồn |
+
+## 🧷 Giới hạn kỹ thuật và phạm vi sử dụng
+
+| Nhóm giới hạn | Nội dung |
+| --- | --- |
+| Phạm vi học thuật | Repo phục vụ đồ án môn học, portfolio và review kỹ thuật; không phải hồ sơ kiểm định thiết bị y tế |
+| Độ tin cậy đo | Giá trị BPM/SpO2 phụ thuộc cảm biến, nguồn, ánh sáng, vị trí ngón tay và thư viện xử lý |
+| Kiểm thử | Có mô phỏng Proteus và video demo, nhưng chưa có quy trình test lâm sàng hoặc hiệu chuẩn với thiết bị chuẩn |
+| Bảo mật và sản phẩm | Chưa có vỏ thiết bị, quản lý pin, lưu log dài hạn, cảnh báo y tế hoặc kết nối cloud được kiểm định |
 
 ## 🧱 Hướng phát triển
 

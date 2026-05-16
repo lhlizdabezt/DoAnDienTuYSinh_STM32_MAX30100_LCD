@@ -3,10 +3,12 @@
 .gitattributes text eol=lf
 *.md text eol=lf
 *.ino text eol=lf
+*.py text eol=lf
 *.pdsprj binary
 *.pptx binary
 *.mp4 binary
 *.gif binary
+*.zip binary
 *.svg text eol=lf
 *.png binary
 *.jpg binary
