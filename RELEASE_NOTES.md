@@ -1,3 +1,22 @@
+# v1.2.1 - Sửa spacing GIF pulse-wave
+
+Ngày phát hành: 2026-05-17
+
+## Mục tiêu
+
+Phiên bản này sửa lỗi visual trong `assets/pulse-wave.gif`: nhãn **MAX30100 / MAX30102** ở hàng chip bị hẹp, làm chữ tràn sát mép box khi hiển thị trên GitHub.
+
+## Điểm mới
+
+- Nới rộng chip `MAX30100 / MAX30102` và chuyển layout chip sang chiều rộng riêng cho từng nhãn.
+- Render lại `assets/pulse-wave.gif` và `assets/pulse-wave-preview.png`.
+- Giữ profile README dùng tag mới để tránh cache asset cũ ở `v1.2.0`.
+
+## Kiểm tra
+
+- Preview GIF không còn chữ tràn khỏi box `MAX30100 / MAX30102`.
+- Kích thước GIF giữ ở 960 x 360 và 42 frame.
+
 # v1.2.0 - Nâng cấp portfolio Điện tử Y sinh STM32
 
 Ngày phát hành: 2026-05-17

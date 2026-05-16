@@ -104,15 +104,15 @@ def frame(idx: int) -> Image.Image:
             draw.ellipse((x - 4, y - 4, x + 4, y + 4), fill="#f97316")
 
     chips = [
-        ("STM32F103C8T6", 292, 112, "#2563eb"),
-        ("I2C", 488, 112, "#0f766e"),
-        ("MAX30100/MAX30102", 556, 112, "#d95319"),
-        ("Serial1 log", 790, 112, "#334155"),
+        ("STM32F103C8T6", 292, 112, 172, "#2563eb"),
+        ("I2C", 486, 112, 66, "#0f766e"),
+        ("MAX30100 / MAX30102", 574, 112, 228, "#d95319"),
+        ("Serial1 log", 824, 112, 124, "#334155"),
     ]
-    for text, x, y, color in chips:
-        round_rect(draw, (x, y, x + 170, y + 42), 18, color, None)
+    for text, x, y, w, color in chips:
+        round_rect(draw, (x, y, x + w, y + 42), 18, color, None)
         tw = draw.textlength(text, font=FONT_LABEL)
-        draw.text((x + (170 - tw) / 2, y + 12), text, font=FONT_LABEL, fill="#ffffff")
+        draw.text((x + (w - tw) / 2, y + 12), text, font=FONT_LABEL, fill="#ffffff")
 
     draw.text((294, 300), "Kiểm chứng: cảm biến -> I2C -> firmware -> LCD", font=FONT_LABEL, fill="#ffffff")
     draw.text((294, 324), "Bằng chứng: video demo, Proteus, release assets.", font=FONT_SMALL, fill="#cffafe")
